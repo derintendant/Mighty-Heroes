@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="244.0" y="16.0">LoginClientModule.LoginServerConnectable</node>
+    <node x="-20.0" y="176.0">LoginClientModule.LoginView</node>
+    <node x="-3.5" y="-4.5">LoginClientModule.LoginController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="LoginClientModule.LoginController" target="LoginClientModule.LoginServerConnectable">
+      <point x="83.5" y="-0.0" />
+      <point x="-116.0" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="228.0" y="110.0" />
+  <SelectedNodes>
+    <node>LoginClientModule.LoginController</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

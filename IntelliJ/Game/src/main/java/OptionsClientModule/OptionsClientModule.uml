@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="161.0" y="0.0">OptionsClientModule.OptionsView</node>
+    <node x="712.0" y="724.0">OptionsClientModule.OptionsGraphicsModel</node>
+    <node x="709.0" y="66.0">OptionsClientModule.OptionsAudioView</node>
+    <node x="413.0" y="827.0">OptionsClientModule.OptionsGraphicsView</node>
+    <node x="492.0" y="594.0">OptionsClientModule.OptionsGraphicsController</node>
+    <node x="309.0" y="145.0">OptionsClientModule.OptionsController</node>
+    <node x="196.0" y="470.0">OptionsClientModule.OptionsAccountController</node>
+    <node x="0.0" y="580.0">OptionsClientModule.OptionsAccountView</node>
+    <node x="649.0" y="211.0">OptionsClientModule.OptionsAudioController</node>
+    <node x="896.0" y="313.0">OptionsClientModule.OptionsAudioModel</node>
+    <node x="395.0" y="341.0">OptionsClientModule.OptionsModel</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="OptionsClientModule.OptionsAudioController" target="OptionsClientModule.OptionsAudioModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="OptionsClientModule.OptionsGraphicsController" target="OptionsClientModule.OptionsGraphicsModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="OptionsClientModule.OptionsGraphicsController" target="OptionsClientModule.OptionsGraphicsView">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="OptionsClientModule.OptionsController" target="OptionsClientModule.OptionsModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="OptionsClientModule.OptionsAccountController" target="OptionsClientModule.OptionsAccountView">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="OptionsClientModule.OptionsModel" target="OptionsClientModule.OptionsGraphicsController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="OptionsClientModule.OptionsModel" target="OptionsClientModule.OptionsAudioController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="OptionsClientModule.OptionsAudioController" target="OptionsClientModule.OptionsAudioView">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="OptionsClientModule.OptionsModel" target="OptionsClientModule.OptionsAccountController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="OptionsClientModule.OptionsController" target="OptionsClientModule.OptionsView">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="549.0" y="357.0" />
+  <SelectedNodes>
+    <node>OptionsClientModule.OptionsGraphicsModel</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

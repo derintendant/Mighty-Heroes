@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="454.0">MultiplayerInGameClientModule.MultiplayerInGameMenuOverlayController</node>
+    <node x="300.0" y="454.0">MultiplayerInGameClientModule.MultiplayerInGameMenuOverlayView</node>
+    <node x="111.0" y="-10.0">MultiplayerInGameClientModule.MultiplayerInGameConnectable</node>
+    <node x="0.0" y="547.0">MultiplayerInGameClientModule.MultiplayerInGameView</node>
+    <node x="-10.0" y="189.0">MultiplayerInGameClientModule.MultiplayerInGameController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="MultiplayerInGameClientModule.MultiplayerInGameController" target="MultiplayerInGameClientModule.MultiplayerInGameConnectable">
+      <point x="0.0" y="-105.0" />
+      <point x="0.0" y="74.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8974789915966387" x="255.0" y="288.0" />
+  <SelectedNodes>
+    <node>MultiplayerInGameClientModule.MultiplayerInGameController</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

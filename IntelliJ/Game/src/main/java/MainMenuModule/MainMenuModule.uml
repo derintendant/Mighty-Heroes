@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-15.0" y="-4.5">MainMenuModule.MainMenuController</node>
+    <node x="265.0" y="26.0">MainMenuModule.MainMenuModel</node>
+    <node x="-20.0" y="176.0">MainMenuModule.MainMenuView</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="MainMenuModule.MainMenuController" target="MainMenuModule.MainMenuModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="MainMenuModule.MainMenuController" target="MainMenuModule.MainMenuView">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="178.0" y="110.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

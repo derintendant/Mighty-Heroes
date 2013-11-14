@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="258.0">MultiplayerInGameServerModule.MultiplayerInGameModel</node>
+    <node x="0.0" y="0.0">MultiplayerInGameServerModule.MultiplayerInGameAccessable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="MultiplayerInGameServerModule.MultiplayerInGameModel" target="MultiplayerInGameServerModule.MultiplayerInGameAccessable">
+      <point x="0.0" y="-104.0" />
+      <point x="0.0" y="104.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="148.0" y="233.0" />
+  <SelectedNodes>
+    <node>MultiplayerInGameServerModule.MultiplayerInGameModel</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

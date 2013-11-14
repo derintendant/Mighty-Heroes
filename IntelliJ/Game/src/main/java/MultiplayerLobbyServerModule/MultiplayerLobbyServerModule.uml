@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-17.5" y="86.0">MultiplayerLobbyServerModule.MultiplayerLobbyAccessable</node>
+    <node x="-17.5" y="-34.0">MultiplayerLobbyServerModule.MultiplayerLobbyModel</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="MultiplayerLobbyServerModule.MultiplayerLobbyModel" target="MultiplayerLobbyServerModule.MultiplayerLobbyAccessable">
+      <point x="0.0" y="34.0" />
+      <point x="0.0" y="-34.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="80.0" y="60.0" />
+  <SelectedNodes>
+    <node>MultiplayerLobbyServerModule.MultiplayerLobbyModel</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
