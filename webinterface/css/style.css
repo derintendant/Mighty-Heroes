@@ -1,0 +1,33 @@
+.form-signin {
+	margin-left: 40%;
+	margin-right: 40%;
+}
+
+.form-register {
+	margin-left: 40%;
+	margin-right: 40%;
+}
+
+.form-signin label {
+	font-weight: normal;
+}
+
+input.singleBox {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+input.topfield {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+input.bottomfield {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	margin-bottom: 5px;
+}
+
+input.middlefield {
+	border-radius: 0;
+}
