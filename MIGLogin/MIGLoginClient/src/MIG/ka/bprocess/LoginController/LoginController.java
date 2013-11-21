@@ -10,6 +10,14 @@ package MIG.ka.bprocess.LoginController;
  *
  * @author Thomas
  */
-public class LoginController {
-    
+public class LoginController implements LoginListener{
+
+    @Override
+    public void actionPerformed(LoginEvent event) {
+        //TODO: sendWithParams("verifyUser",new Vector<String> {event.getName , event.getPassword };) 
+    }
+
+    @Override
+    public void actionPerformed(CommonEvent event) {
+    }
 }
