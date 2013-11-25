@@ -26,7 +26,7 @@ public class NetworkingClient {
     
     private final static String ServerUrlPrefix = "http://";
     private final static String ServerIp = "127.0.0.1";
-    private final static String ServerPort = ":8085/xmlrpc";
+    private final static String ServerPort = ":8085/";
     
     private final XmlRpcClient client;
     
@@ -51,6 +51,7 @@ public class NetworkingClient {
     {
         try 
         {
+            this.client.
           return this.client.execute(MethodName, params);
         } 
         catch (XmlRpcException ex) 
@@ -66,7 +67,7 @@ public class NetworkingClient {
         ArrayList list = new ArrayList();
         list.add(username);
         list.add(password);
-        return (boolean) sendWithParams(/*"MigXmlRpcWorker.*/"checkLogindata", list);
+        return (boolean) sendWithParams("MigXmlRpcWorker.checkLogindata", list);
     }
     
     public static NetworkingClient getInstance()

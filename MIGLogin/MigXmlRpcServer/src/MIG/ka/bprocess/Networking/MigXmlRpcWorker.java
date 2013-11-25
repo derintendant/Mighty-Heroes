@@ -31,7 +31,7 @@ public class MigXmlRpcWorker {
         try 
         {
             PropertyHandlerMapping handler = new PropertyHandlerMapping();
-            handler.addHandler("LoginModel", MIG.ka.bprocess.LoginModel.LoginModel.class);
+            handler.addHandler("MigXmlRpcWorker", MIG.ka.bprocess.Networking.MigXmlRpcWorker.class);
             this.server.getXmlRpcServer().setHandlerMapping(handler);
             
              XmlRpcServerConfigImpl serverConfig =
@@ -54,6 +54,7 @@ public class MigXmlRpcWorker {
     
     public boolean checkLogindata(ArrayList<String> params)
     {
+        System.out.println("Hier bin ich!");
         return LoginModel.checkLogindata(params.get(0), params.get(1));
     }
         

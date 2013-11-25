@@ -38,6 +38,7 @@ public class LoginController implements LoginListener{
     public LoginController() 
     {
         this.view = new LoginScreenController();
+        this.view.setListener(this);
     }
 
     /**

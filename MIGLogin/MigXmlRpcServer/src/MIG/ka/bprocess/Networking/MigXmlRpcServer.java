@@ -7,6 +7,7 @@
 package MIG.ka.bprocess.Networking;
 
 import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,7 +27,7 @@ public class MigXmlRpcServer {
         try 
         {
             MigXmlRpcWorker  worker;
-            worker = new MigXmlRpcWorker(8085, Inet4Address.getLocalHost());
+            worker = new MigXmlRpcWorker(8085, InetAddress.getByName("localhost"));
         } catch (UnknownHostException ex) 
         {
             Logger.getLogger(MigXmlRpcServer.class.getName()).log(Level.SEVERE, null, ex);
