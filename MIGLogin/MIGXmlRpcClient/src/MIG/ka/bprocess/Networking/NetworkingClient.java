@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
+import org.apache.xmlrpc.client.XmlRpcCommonsTransportFactory;
 
 /**
  *
@@ -25,16 +26,19 @@ public class NetworkingClient {
     
     private final static String ServerUrlPrefix = "http://";
     private final static String ServerIp = "127.0.0.1";
-    private final static String ServerPort = ":8080/";
+    private final static String ServerPort = ":8085/xmlrpc";
     
     private final XmlRpcClient client;
-
+    
     private NetworkingClient() {
         this.client = new XmlRpcClient();
         XmlRpcClientConfigImpl conf = new XmlRpcClientConfigImpl();
         try 
         {
             conf.setServerURL(new URL(ServerUrlPrefix+ServerIp+ServerPort));
+            conf.setConnectionTimeout(60 * 1000);
+            conf.setReplyTimeout(60 * 1000);
+
         } 
         catch (MalformedURLException ex) 
         {
@@ -47,12 +51,12 @@ public class NetworkingClient {
     {
         try 
         {
-           return this.client.execute(MethodName, params);
+          return this.client.execute(MethodName, params);
         } 
         catch (XmlRpcException ex) 
         {
             Logger.getLogger(NetworkingClient.class.getName())
-                    .log(Level.SEVERE, "Failed Serverrequest for: " + MethodName + "with following Parameters: " + params, ex);
+                    .log(Level.SEVERE, "Failed Serverrequest for: " + MethodName + " with following Parameters: " + params, ex);
         }
         return null;
     }
@@ -62,7 +66,7 @@ public class NetworkingClient {
         ArrayList list = new ArrayList();
         list.add(username);
         list.add(password);
-        return (boolean) sendWithParams("LoginRequest", list);
+        return (boolean) sendWithParams(/*"MigXmlRpcWorker.*/"checkLogindata", list);
     }
     
     public static NetworkingClient getInstance()

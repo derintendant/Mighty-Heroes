@@ -6,6 +6,7 @@
 
 package MIG.ka.bprocess.LoginController;
 
+import MIG.ka.bprocess.LoginScreenController.LoginScreenController;
 import MIG.ka.bprocess.Networking.NetworkingClient;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +17,8 @@ import java.util.logging.Logger;
  */
 public class LoginController implements LoginListener{
 
+    private LoginScreenController view;
+    
     @Override
     public void actionPerformed(LoginEvent event) {
         boolean LoginSucces;
@@ -31,6 +34,11 @@ public class LoginController implements LoginListener{
             //TODO: Mathode aufrufen, die diesen Fall behandelt
         }
     }   
+
+    public LoginController() 
+    {
+        this.view = new LoginScreenController();
+    }
 
     /**
      *
