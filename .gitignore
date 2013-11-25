@@ -1,8 +1,9 @@
 *.class
 
 # Package Files #
-*.jar
 *.war
 *.ear
 /MIGLogin/MIGLoginClient/nbproject/private/
 /MIGLogin/MIGLoginServer/nbproject/private/
+/MIGLogin/MIGMain/nbproject/private/
+/MIGLogin/MIGXmlRpcClient/nbproject/private/

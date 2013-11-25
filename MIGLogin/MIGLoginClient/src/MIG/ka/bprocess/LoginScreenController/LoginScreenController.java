@@ -4,6 +4,7 @@
  */
 package MIG.ka.bprocess.LoginScreenController;
 
+import MIG.ka.bprocess.LoginController.LoginController;
 import MIG.ka.bprocess.LoginController.LoginEvent;
 import com.jme3.app.SimpleApplication;
 import com.jme3.niftygui.NiftyJmeDisplay;
@@ -20,13 +21,6 @@ public class LoginScreenController extends SimpleApplication implements ScreenCo
     
     private Nifty nifty;
     private static  LoginScreenController app;
-
-    public static void main(String[] args){
-        app = new LoginScreenController();
-        app.setPauseOnLostFocus(false);
-        app.start();
-    }
-
     
     @Override
     public void bind(Nifty nifty, Screen screen) {
@@ -65,7 +59,9 @@ public class LoginScreenController extends SimpleApplication implements ScreenCo
 	String enteredPassword = passwordTextField.getText();
 	
 	LoginEvent loginEvent = new LoginEvent(enteredUsername, enteredPassword, "1"); // Stimmt das so?
-	// Hier LoginController aufrufen und Logindaten übergeben
+	
+	LoginController login = new LoginController();
+	login.actionPerformed(loginEvent);
     }
     
 }
