@@ -51,7 +51,6 @@ public class NetworkingClient {
     {
         try 
         {
-            this.client.
           return this.client.execute(MethodName, params);
         } 
         catch (XmlRpcException ex) 

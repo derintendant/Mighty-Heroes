@@ -20,7 +20,6 @@ import de.lessvoid.nifty.screen.ScreenController;
 public class LoginScreenController extends SimpleApplication implements ScreenController{
     
     private Nifty nifty;
-    private static  LoginScreenController app;
     
     @Override
     public void bind(Nifty nifty, Screen screen) {
@@ -49,10 +48,12 @@ public class LoginScreenController extends SimpleApplication implements ScreenCo
     }
    
     public void quitGame() {
-	app.stop();
+	System.out.println("Quitting Game");
+	this.stop();
     }
     
     public void login() {
+	System.out.println("Login started");
 	TextField usernameTextField = nifty.getCurrentScreen().findNiftyControl("usernameTextField", TextField.class);
 	TextField passwordTextField = nifty.getCurrentScreen().findNiftyControl("usernameTextField", TextField.class);
 	String enteredUsername = usernameTextField.getText();
