@@ -1,7 +1,6 @@
 package MainGame;
 
 import GameController.GameController;
-import MIG.ka.bprocess.LoginScreenController.LoginScreenController;
 
 /**
  * test
