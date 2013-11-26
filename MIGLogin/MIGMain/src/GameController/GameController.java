@@ -5,24 +5,23 @@
 package GameController;
 
 import MIG.ka.bprocess.LoginScreenController.LoginScreenController;
-import com.jme3.app.SimpleApplication;
-import com.jme3.niftygui.NiftyJmeDisplay;
 
 /**
  *
  * @author derintendant
  */
-public class GameController extends SimpleApplication {
+public class GameController {
     
+    LoginScreenController login;
 
-    @Override
-    public void simpleInitApp() {
-	LoginScreenController login = new LoginScreenController();
-	login.simpleInitApp();
+    public GameController() {
+	login = new LoginScreenController();
     }
-
-    public void startGame(LoginScreenController login) {
-	this.simpleInitApp();
+    
+    public void startLogin() {
+	login.setPauseOnLostFocus(false);
+	login.start();
     }
+    
     
 }

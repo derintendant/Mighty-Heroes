@@ -57,7 +57,7 @@ public class LoginScreenController extends SimpleApplication implements ScreenCo
     public void login() {
 	System.out.println("Login started");
 	TextField usernameTextField = nifty.getCurrentScreen().findNiftyControl("usernameTextField", TextField.class);
-	TextField passwordTextField = nifty.getCurrentScreen().findNiftyControl("usernameTextField", TextField.class);
+	TextField passwordTextField = nifty.getCurrentScreen().findNiftyControl("passwordTextField", TextField.class);
 	String enteredUsername = usernameTextField.getText();
 	String enteredPassword = passwordTextField.getText();
 	
