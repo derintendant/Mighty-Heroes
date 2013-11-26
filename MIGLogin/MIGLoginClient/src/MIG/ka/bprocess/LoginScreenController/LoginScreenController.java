@@ -4,7 +4,6 @@
  */
 package MIG.ka.bprocess.LoginScreenController;
 
-import MIG.ka.bprocess.LoginController.LoginController;
 import MIG.ka.bprocess.LoginController.LoginEvent;
 import MIG.ka.bprocess.LoginController.LoginListener;
 import com.jme3.app.SimpleApplication;

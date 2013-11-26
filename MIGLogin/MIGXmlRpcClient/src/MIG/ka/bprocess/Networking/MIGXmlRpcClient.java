@@ -6,6 +6,9 @@
 
 package MIG.ka.bprocess.Networking;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
 // * @author Thor
@@ -13,7 +16,15 @@ package MIG.ka.bprocess.Networking;
 public class MIGXmlRpcClient {
      public static void main(String[] args) 
     {
-       boolean ans = NetworkingClient.getInstance().LoginRequest("test", "passwort");
-        System.out.println("Ans:" + ans);
+        try
+        {
+            boolean ans = NetworkingClient.getInstance().LoginRequest("test", "passwort");
+            System.out.println("Ans:" + ans);
+        }
+        catch(NullPointerException e)
+        {
+            Logger.getLogger(NetworkingClient.class.getName()).log(Level.SEVERE, "Server is not available!" , e);
+        }
+       
     }
 }
