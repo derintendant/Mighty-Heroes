@@ -6,6 +6,7 @@ package MIG.ka.bprocess.LoginScreenController;
 
 import MIG.ka.bprocess.LoginController.LoginController;
 import MIG.ka.bprocess.LoginController.LoginEvent;
+import MIG.ka.bprocess.LoginController.LoginListener;
 import com.jme3.app.SimpleApplication;
 import com.jme3.niftygui.NiftyJmeDisplay;
 import de.lessvoid.nifty.Nifty;
@@ -20,6 +21,7 @@ import de.lessvoid.nifty.screen.ScreenController;
 public class LoginScreenController extends SimpleApplication implements ScreenController{
     
     private Nifty nifty;
+    private LoginListener loginListener;
     
     @Override
     public void bind(Nifty nifty, Screen screen) {
@@ -59,10 +61,13 @@ public class LoginScreenController extends SimpleApplication implements ScreenCo
 	String enteredUsername = usernameTextField.getText();
 	String enteredPassword = passwordTextField.getText();
 	
-	LoginEvent loginEvent = new LoginEvent(enteredUsername, enteredPassword, "1"); // Stimmt das so?
-	
-	LoginController login = new LoginController();
-	login.actionPerformed(loginEvent);
+	LoginEvent loginEvent = new LoginEvent(enteredUsername, enteredPassword, "loginButtonClick");
+
+	loginListener.actionPerformed(loginEvent);
+    }
+    
+    public void setListener(LoginListener loginListener) {
+	this.loginListener = loginListener;
     }
     
 }
