@@ -15,7 +15,6 @@ import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 import org.apache.xmlrpc.client.XmlRpcCommonsTransportFactory;
-import org.apache.xmlrpc.client.XmlRpcLocalTransportFactory;
 
 /**
  *
@@ -46,7 +45,7 @@ public class NetworkingClient {
             Logger.getLogger(NetworkingClient.class.getName()).log(Level.SEVERE, "Server URL is not working!" , ex);
         }
         this.client.setConfig(conf);
-        this.client.setTransportFactory(new XmlRpcLocalTransportFactory(client));
+        this.client.setTransportFactory(new XmlRpcCommonsTransportFactory(client));
     }
     
     private Object sendWithParams(String MethodName, ArrayList params)
@@ -75,7 +74,7 @@ public class NetworkingClient {
         ArrayList list = new ArrayList();
         list.add(username);
         list.add(password);
-        return (boolean)sendWithParams("MigXmlRpcWorker.checkLogindata", list);
+        return (boolean)sendWithParams("LoginHandler.checkLogindata", list);
     }
     
     public static NetworkingClient getInstance()
