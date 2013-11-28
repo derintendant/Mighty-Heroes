@@ -45,6 +45,7 @@ public class NetworkingClient {
             Logger.getLogger(NetworkingClient.class.getName()).log(Level.SEVERE, "Server URL is not working!" , ex);
         }
         this.client.setConfig(conf);
+        this.client.setTransportFactory(new XmlRpcCommonsTransportFactory(client));
     }
     
     private Object sendWithParams(String MethodName, ArrayList params)
@@ -61,12 +62,19 @@ public class NetworkingClient {
         return null;
     }
     
-    public boolean LoginRequest(String username, String password)
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     * @throws NullPointerException
+     */
+    public boolean LoginRequest(String username, String password) throws NullPointerException
     {
         ArrayList list = new ArrayList();
         list.add(username);
         list.add(password);
-        return (boolean) sendWithParams("MigXmlRpcWorker.checkLogindata", list);
+        return (boolean)sendWithParams("LoginHandler.checkLogindata", list);
     }
     
     public static NetworkingClient getInstance()

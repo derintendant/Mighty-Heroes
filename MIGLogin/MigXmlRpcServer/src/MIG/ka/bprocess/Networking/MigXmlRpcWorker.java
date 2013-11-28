@@ -6,10 +6,8 @@
 
 package MIG.ka.bprocess.Networking;
 
-import MIG.ka.bprocess.LoginModel.LoginModel;
 import java.io.IOException;
 import java.net.InetAddress;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.xmlrpc.XmlRpcException;
@@ -31,31 +29,23 @@ public class MigXmlRpcWorker {
         try 
         {
             PropertyHandlerMapping handler = new PropertyHandlerMapping();
-            handler.addHandler("MigXmlRpcWorker", MIG.ka.bprocess.Networking.MigXmlRpcWorker.class);
+            handler.addHandler("LoginHandler", MIG.ka.bprocess.Networking.Handler.MigXmlRpcLoginHandler.class);
             this.server.getXmlRpcServer().setHandlerMapping(handler);
             
              XmlRpcServerConfigImpl serverConfig =
               (XmlRpcServerConfigImpl) this.server.getXmlRpcServer().getConfig();
-          serverConfig.setEnabledForExtensions(true);
-          serverConfig.setContentLengthOptional(false);
+            serverConfig.setEnabledForExtensions(true);
+            serverConfig.setContentLengthOptional(false);
             
             Logger.getLogger(MigXmlRpcWorker.class.getName()).log(Level.INFO, 
                     "Started the Working Socket at Port: " + port);
             this.server.acceptClient("127.0.0.1");
             this.server.start();
-        } catch (IOException ex) 
+        } 
+        catch (IOException | XmlRpcException ex) 
         {
             Logger.getLogger(MigXmlRpcWorker.class.getName()).log(Level.SEVERE, 
                     "Failed to Start the Working Socket at Port: " + port , ex);
-        } catch (XmlRpcException ex) {
-            Logger.getLogger(MigXmlRpcWorker.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public boolean checkLogindata(ArrayList<String> params)
-    {
-        System.out.println("Hier bin ich!");
-        return LoginModel.checkLogindata(params.get(0), params.get(1));
-    }
-        
 }
