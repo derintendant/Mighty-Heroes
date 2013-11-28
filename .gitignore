@@ -15,3 +15,8 @@
 /MIGLogin/MIGXmlRpcClient/dist/
 /MIGLogin/MIGMain/dist/
 /MIGLogin/MIGLoginClient/dist/
+MIGLogin/MIGLoginServer/build
+MIGLogin/MIGLoginServer/dist
+MIGLogin/MigXmlRpcServer/build
+MIGLogin/MigXmlRpcServer/dist
+MIGLogin/MigXmlRpcServer/nbproject/private
