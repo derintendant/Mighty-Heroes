@@ -1,6 +1,6 @@
-package MainGame;
+package MIG.ka.bprocess.MainGame;
 
-import GameController.GameController;
+import MIG.ka.bprocess.GameController.GameController;
 
 /**
  * test
