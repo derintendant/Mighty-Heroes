@@ -69,7 +69,16 @@ javac.classpath=\
     ${file.reference.eventbus.jar}:\
     ${file.reference.gluegen-rt.jar}:\
     ${file.reference.j-ogg-oggd.jar}:\
+<<<<<<< HEAD
+    ${file.reference.j-ogg-vorbisd.jar}
+=======
+    ${file.reference.jbullet.jar}:\
+    ${file.reference.jglfont-core.jar}:\
+    ${file.reference.jinput.jar}:\
+>>>>>>> 22c34d8519de3b8b72755cd61a24ee9c3e4772d1
+=======
     ${file.reference.j-ogg-vorbisd.jar}:\
+>>>>>>> 8f18da0a990ad73cbf1a5c1080c9bb445c468643
     ${file.reference.jME3-blender.jar}:\
     ${file.reference.jME3-core.jar}:\
     ${file.reference.jME3-desktop.jar}:\
@@ -83,9 +92,18 @@ javac.classpath=\
     ${file.reference.jME3-openal-soft-natives-android.jar}:\
     ${file.reference.jME3-plugins.jar}:\
     ${file.reference.jME3-terrain.jar}:\
+<<<<<<< HEAD
+<<<<<<< HEAD
     ${file.reference.jbullet.jar}:\
     ${file.reference.jglfont-core.jar}:\
     ${file.reference.jinput.jar}:\
+=======
+>>>>>>> 22c34d8519de3b8b72755cd61a24ee9c3e4772d1
+=======
+    ${file.reference.jbullet.jar}:\
+    ${file.reference.jglfont-core.jar}:\
+    ${file.reference.jinput.jar}:\
+>>>>>>> 8f18da0a990ad73cbf1a5c1080c9bb445c468643
     ${file.reference.joal.jar}:\
     ${file.reference.jogl-all.jar}:\
     ${file.reference.lwjgl.jar}:\
@@ -94,9 +112,13 @@ javac.classpath=\
     ${file.reference.nifty.jar}:\
     ${file.reference.stack-alloc.jar}:\
     ${file.reference.vecmath.jar}:\
+<<<<<<< HEAD
+    ${file.reference.xmlpull-xpp3.jar}
+=======
     ${file.reference.xmlpull-xpp3.jar}:\
     ${reference.MIGLoginClient.jar}:\
     ${reference.MIGXmlRpcClient.jar}
+>>>>>>> 22c34d8519de3b8b72755cd61a24ee9c3e4772d1
     ${file.reference.MIGMain-lib}:\
     ${reference.MIGLoginClient.jar}
 =======
@@ -162,15 +184,19 @@ jnlp.signed=false
 jnlp.signing=
 jnlp.signing.alias=
 jnlp.signing.keystore=
-launch4j.exe.enabled=true
-linux.launcher.enabled=true
 lwjgl.applet.height=480
 lwjgl.applet.width=640
+<<<<<<< HEAD
+main.class=MainGame.Main
+=======
 mac.app.enabled=true
 main.class=MIG.ka.bprocess.MainGame.Main
+>>>>>>> 8f18da0a990ad73cbf1a5c1080c9bb445c468643
 meta.inf.dir=${src.dir}/META-INF
 manifest.file=MANIFEST.MF
 mkdist.disabled=false
+mobile.android.package=com.mycompany.mygame
+obfuscate.options=-keep public class * extends com.jme3.app.Application{public *;}\n-keep public class * extends com.jme3.system.JmeSystemDelegate{public *;}\n-keep public class * implements com.jme3.renderer.Renderer{public *;}\n-keep public class * implements com.jme3.asset.AssetLoader{public *;}\n-keep public class * implements com.jme3.asset.AssetLocator{public *;}\n-keep public class * implements de.lessvoid.nifty.screen.ScreenController{public *;}\n-dontwarn\n-dontnote\n
 platform.active=default_platform
 project.MIGLoginClient=../MIGLoginClient
 project.MIGXmlRpcClient=../MIGXmlRpcClient
