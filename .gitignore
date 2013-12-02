@@ -8,15 +8,15 @@
 /MIGLogin/MIGMain/nbproject/private/
 /MIGLogin/MIGXmlRpcClient/nbproject/private/
 
-/MIGLogin/MIGXmlRpcClient/build/
-/MIGLogin/MIGMain/build/
-/MIGLogin/MIGLoginClient/build/
 
+/MIGLogin/MIGXmlRpcClient/build/
 /MIGLogin/MIGXmlRpcClient/dist/
+/MIGLogin/MIGMain/build/
 /MIGLogin/MIGMain/dist/
+/MIGLogin/MIGLoginClient/build/
 /MIGLogin/MIGLoginClient/dist/
-MIGLogin/MIGLoginServer/build
-MIGLogin/MIGLoginServer/dist
-MIGLogin/MigXmlRpcServer/build
-MIGLogin/MigXmlRpcServer/dist
-MIGLogin/MigXmlRpcServer/nbproject/private
+MIGLogin/MIGLoginServer/build/
+MIGLogin/MIGLoginServer/dist/
+MIGLogin/MigXmlRpcServer/build/
+MIGLogin/MigXmlRpcServer/dist/
+MIGLogin/MigXmlRpcServer/nbproject/private/
