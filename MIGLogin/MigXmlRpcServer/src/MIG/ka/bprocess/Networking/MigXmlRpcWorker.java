@@ -30,6 +30,7 @@ public class MigXmlRpcWorker {
         {
             PropertyHandlerMapping handler = new PropertyHandlerMapping();
             handler.addHandler("LoginHandler", MIG.ka.bprocess.Networking.Handler.MigXmlRpcLoginHandler.class);
+            handler.addHandler("LobbyHandler", MIG.ka.bprocess.Networking.Handler.MigXmlRpcLobbyHandler.class);
             this.server.getXmlRpcServer().setHandlerMapping(handler);
             
              XmlRpcServerConfigImpl serverConfig =

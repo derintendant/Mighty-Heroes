@@ -4,7 +4,7 @@
  */
 package MIG.ka.bprocess.GameController;
 
-import MIG.ka.bprocess.LoginScreenController.LoginScreenController;
+import MIG.ka.bprocess.Login.Screen.LoginView;
 
 /**
  *
@@ -12,10 +12,10 @@ import MIG.ka.bprocess.LoginScreenController.LoginScreenController;
  */
 public class GameController {
     
-    LoginScreenController login;
+    LoginView login;
 
     public GameController() {
-	login = new LoginScreenController();
+	login = new LoginView();
     }
     
     public void startLogin() {
