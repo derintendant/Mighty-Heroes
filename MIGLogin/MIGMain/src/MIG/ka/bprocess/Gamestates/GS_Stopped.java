@@ -7,6 +7,7 @@
 package MIG.ka.bprocess.Gamestates;
 
 import MIG.ka.bprocess.Common.CommonEvent;
+import MIG.ka.bprocess.Common.ViewProperty;
 import MIG.ka.bprocess.Login.LoginEvent;
 import MIG.ka.bprocess.Login.LoginListener;
 import MIG.ka.bprocess.Login.Screen.LoginView;
@@ -58,10 +59,10 @@ public class GS_Stopped extends Gamestate implements LoginListener, StartMultipl
     }
 
     @Override
-    public void init() {
-        
-        this.view = new LoginView();
-        this.view.setListener(this);
+    public void init() 
+    {
+        view = new LoginView();
+        view.setListener((LoginListener)this);
         this.startLogin();
     }
 
@@ -71,8 +72,8 @@ public class GS_Stopped extends Gamestate implements LoginListener, StartMultipl
     }
     
     public void startLogin() {
-	view.setPauseOnLostFocus(false);
-	view.start();
+        ViewProperty.getInstance().setPauseOnLostFocus(false);
+	ViewProperty.getInstance().start();
     }
 
     @Override
