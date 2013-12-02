@@ -22,3 +22,4 @@ MIGLogin/MigXmlRpcServer/nbproject/private/
 /MIGLogin/*/dist/
 /MIGLogin/*/nbproject/private/
 >>>>>>> c35a9a0585fe46698f13c32677782952ae0662a7
+*.dll
