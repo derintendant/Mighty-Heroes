@@ -8,7 +8,7 @@
 /MIGLogin/MIGMain/nbproject/private/
 /MIGLogin/MIGXmlRpcClient/nbproject/private/
 
-/MIGLogin/MIGXmlRpcClient/build/
+/MIGLogin/*/build/
 /MIGLogin/MIGMain/build/
 /MIGLogin/MIGLoginClient/build/
 
@@ -17,3 +17,4 @@
 /MIGLogin/MIGLoginClient/dist/
 /MIGLogin/MigXmlRpcServer/dist/
 MIGLogin/MigXmlRpcServer/nbproject/private/private.xml
+MIGLogin/MigXmlRpcServer/nbproject/private/
