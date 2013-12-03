@@ -4,7 +4,11 @@
        xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
     <useStyles filename="nifty-default-styles.xml" />
     <useControls filename="nifty-default-controls.xml" />
+<<<<<<< HEAD
     <screen id="start" controller="MIG.ka.bprocess.Login.Screen.LoginView">
+=======
+    <screen id="login" controller="MIG.ka.bprocess.Login.Screen.LoginView">
+>>>>>>> 8dfd9d898d35e081d60fe46b12174bde8e2c0cd5
 	<layer id="background" backgroundColor="#000f">
 	    <!-- ... -->
 	</layer>
