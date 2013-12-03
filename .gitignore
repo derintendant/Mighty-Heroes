@@ -3,17 +3,23 @@
 # Package Files #
 *.war
 *.ear
-/MIGLogin/MIGLoginClient/nbproject/private/
-/MIGLogin/MIGLoginServer/nbproject/private/
-/MIGLogin/MIGMain/nbproject/private/
-/MIGLogin/MIGXmlRpcClient/nbproject/private/
 
-/MIGLogin/*/build/
-/MIGLogin/MIGMain/build/
-/MIGLogin/MIGLoginClient/build/
+<<<<<<< HEAD
 
+/MIGLogin/MIGXmlRpcClient/build/
 /MIGLogin/MIGXmlRpcClient/dist/
+/MIGLogin/MIGMain/build/
 /MIGLogin/MIGMain/dist/
 /MIGLogin/MIGLoginClient/build/
 /MIGLogin/MIGLoginClient/dist/
-/MIGLogin/MigXmlRpcServer/dist/
+MIGLogin/MIGLoginServer/build/
+MIGLogin/MIGLoginServer/dist/
+MIGLogin/MigXmlRpcServer/build/
+MIGLogin/MigXmlRpcServer/dist/
+MIGLogin/MigXmlRpcServer/nbproject/private/
+=======
+/MIGLogin/*/build/
+/MIGLogin/*/dist/
+/MIGLogin/*/nbproject/private/
+>>>>>>> c35a9a0585fe46698f13c32677782952ae0662a7
+*.dll

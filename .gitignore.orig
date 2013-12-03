@@ -1,0 +1,33 @@
+*.class
+
+# Package Files #
+*.war
+*.ear
+/MIGLogin/MIGLoginClient/nbproject/private/
+/MIGLogin/MIGLoginServer/nbproject/private/
+/MIGLogin/MIGMain/nbproject/private/
+/MIGLogin/MIGXmlRpcClient/nbproject/private/
+
+<<<<<<< HEAD
+/MIGLogin/*/build/
+/MIGLogin/MIGMain/build/
+/MIGLogin/MIGLoginClient/build/
+=======
+>>>>>>> secure_commit
+
+/MIGLogin/MIGXmlRpcClient/build/
+/MIGLogin/MIGXmlRpcClient/dist/
+/MIGLogin/MIGMain/build/
+/MIGLogin/MIGMain/dist/
+/MIGLogin/MIGLoginClient/build/
+/MIGLogin/MIGLoginClient/dist/
+<<<<<<< HEAD
+/MIGLogin/MigXmlRpcServer/dist/
+MIGLogin/MigXmlRpcServer/nbproject/private/private.xml
+=======
+MIGLogin/MIGLoginServer/build/
+MIGLogin/MIGLoginServer/dist/
+MIGLogin/MigXmlRpcServer/build/
+MIGLogin/MigXmlRpcServer/dist/
+>>>>>>> secure_commit
+MIGLogin/MigXmlRpcServer/nbproject/private/
