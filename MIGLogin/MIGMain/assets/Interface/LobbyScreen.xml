@@ -20,7 +20,7 @@
 		</panel>
 		<panel id="panel_GameList" height="50%" width="75%" align="center" childLayout="vertical"
 		       backgroundColor="#0000">
-		    <control id="GamesListBox" name="listBox" vertical="optional" horizontal="none" displayItems="10" selection="Single" />
+		    <control id="GamesListBox" name="listBox" vertical="optional" horizontal="off" displayItems="10" selection="Single" />
 		</panel>
 	    </panel>
 	    <panel id="panel_bottom" height="25%" width="100%" align="center" childLayout="horizontal"
