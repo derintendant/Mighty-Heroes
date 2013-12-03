@@ -20,10 +20,7 @@ is divided into following sections:
 
         -->
 <project xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxrpc="http://www.netbeans.org/ns/j2se-project/jax-rpc" basedir=".." default="default" name="MIGMain-impl">
-<<<<<<< HEAD
-=======
     <import file="assets-impl.xml"/>
->>>>>>> 8dfd9d898d35e081d60fe46b12174bde8e2c0cd5
     <fail message="Please build using Ant 1.8.0 or higher.">
         <condition>
             <not>

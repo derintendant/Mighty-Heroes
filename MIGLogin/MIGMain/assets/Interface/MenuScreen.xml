@@ -4,11 +4,7 @@
        xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
     <useStyles filename="nifty-default-styles.xml" />
     <useControls filename="nifty-default-controls.xml" />
-<<<<<<< HEAD
-    <screen id="start" controller="MIG.ka.bprocess.Login.Screen.MenuView">
-=======
     <screen id="menu" controller="MIG.ka.bprocess.MainMenu.Screen.MainMenuView">
->>>>>>> 8dfd9d898d35e081d60fe46b12174bde8e2c0cd5
 	<layer id="background" backgroundColor="#000f">
 	    <!-- ... -->
 	</layer>
@@ -22,11 +18,8 @@
 		<panel id="panel_mid_textFields" height="50%" width="100%" align="center" childLayout="vertical"
 		       backgroundColor="#0000">
 			<control name="button" label="Play Multiplayer" id="PlayMultiplayerButton" align="center" valign="center" visibleToMouse="true">
-<<<<<<< HEAD
 			    <interact onClick="login()" />
-=======
 			    <interact onClick="startMultiplayer()" />
->>>>>>> 8dfd9d898d35e081d60fe46b12174bde8e2c0cd5
 			</control>
 		</panel>
 	    </panel>
