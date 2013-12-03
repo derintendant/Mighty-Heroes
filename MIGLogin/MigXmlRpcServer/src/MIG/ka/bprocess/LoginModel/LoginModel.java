@@ -40,7 +40,7 @@ public class LoginModel {
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql;
-            sql = "SELECT username, password FROM Users";
+            sql = "SELECT username, password FROM users";
             ResultSet rs = stmt.executeQuery(sql);
 
             //Extract data from result set
