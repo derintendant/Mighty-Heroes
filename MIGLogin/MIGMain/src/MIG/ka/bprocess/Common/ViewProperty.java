@@ -44,11 +44,11 @@ public class ViewProperty extends SimpleApplication implements ScreenController
 	nifty.gotoScreen("login");
 	
 	// Quick Hack to add Demo items to the ListBox
-	// nifty.gotoScreen("lobby");
-	ListBox listBox = nifty.getCurrentScreen().findNiftyControl("GamesListBox", ListBox.class);
-	listBox.addItem("Game 1");
-	listBox.addItem("Game 2");
-	listBox.addItem("Game 3");
+//	nifty.gotoScreen("lobby");
+//	ListBox listBox = nifty.getCurrentScreen().findNiftyControl("GamesListBox", ListBox.class);
+//	listBox.addItem("Game 1");
+//	listBox.addItem("Game 2");
+//	listBox.addItem("Game 3");
 	guiViewPort.addProcessor(niftyDisplay);
 	
         flyCam.setEnabled(false);
