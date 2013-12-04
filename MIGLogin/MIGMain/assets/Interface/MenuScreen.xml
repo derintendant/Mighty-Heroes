@@ -18,6 +18,7 @@
 		<panel id="panel_mid_textFields" height="50%" width="100%" align="center" childLayout="vertical"
 		       backgroundColor="#0000">
 			<control name="button" label="Play Multiplayer" id="PlayMultiplayerButton" align="center" valign="center" visibleToMouse="true">
+			    <interact onClick="login()" />
 			    <interact onClick="startMultiplayer()" />
 			</control>
 		</panel>

@@ -40,7 +40,9 @@ public class ViewProperty extends SimpleApplication implements ScreenController
 	nifty.addXml("Interface/LoginScreen.xml");
 	nifty.addXml("Interface/MenuScreen.xml");
 	nifty.addXml("Interface/LobbyScreen.xml");
-	nifty.gotoScreen("login");
+//	nifty.gotoScreen("login");
+//        nifty.gotoScreen("menu");
+        nifty.gotoScreen("lobby");
 	guiViewPort.addProcessor(niftyDisplay);
 	
         flyCam.setEnabled(false);

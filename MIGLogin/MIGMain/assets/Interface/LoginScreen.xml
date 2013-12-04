@@ -18,7 +18,7 @@
 		<panel id="panel_mid_textFields" height="50%" width="100%" align="center" childLayout="vertical"
 		       backgroundColor="#0000">
 		       <control type="textfield" id="usernameTextField" />
-		       <control type="textfield" id="passwordTextField"/>
+		       <control type="textfield" id="passwordTextField" passwordChar="*" />
 		</panel>
 	    </panel>
 	    <panel id="panel_bottom" height="25%" width="75%" align="center" childLayout="horizontal"

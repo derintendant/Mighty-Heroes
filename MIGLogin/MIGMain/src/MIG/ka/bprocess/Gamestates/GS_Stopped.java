@@ -68,7 +68,6 @@ public class GS_Stopped extends Gamestate implements LoginListener, StartMultipl
 
     @Override
     public void cleanup() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public void startLogin() {
