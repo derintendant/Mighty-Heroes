@@ -4,6 +4,7 @@
  */
 package MIG.ka.bprocess.Login.Screen;
 
+import MIG.ka.bprocess.Common.CommonListener;
 import MIG.ka.bprocess.Common.ViewProperty;
 import MIG.ka.bprocess.Login.LoginEvent;
 import MIG.ka.bprocess.Login.LoginListener;
@@ -11,6 +12,7 @@ import de.lessvoid.nifty.Nifty;
 import de.lessvoid.nifty.controls.TextField;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,7 +21,12 @@ import de.lessvoid.nifty.screen.ScreenController;
 public class LoginView implements ScreenController
 {
     
-    private LoginListener loginListener;
+    private ArrayList<CommonListener> listeners = new ArrayList<>();
+    private LoginListener listener;
+    private int id;
+
+    public LoginView() {
+    }
     
     public void quitGame() {
 	System.out.println("Quitting Game");
@@ -33,12 +40,10 @@ public class LoginView implements ScreenController
             System.out.println("Login started");
             TextField usernameTextField = ViewProperty.getInstance().getNifty().getCurrentScreen().findNiftyControl("usernameTextField", TextField.class);
             TextField passwordTextField = ViewProperty.getInstance().getNifty().getCurrentScreen().findNiftyControl("passwordTextField", TextField.class);
-            String enteredUsername = usernameTextField.getText();
-            String enteredPassword = passwordTextField.getText();
-
-            LoginEvent loginEvent = new LoginEvent(enteredUsername, enteredPassword, "loginButtonClick");
-
-            loginListener.actionPerformed(loginEvent);
+            String enteredUsername = usernameTextField.getRealText();
+            String enteredPassword = passwordTextField.getRealText();
+            
+            firePropertyChange(new LoginEvent(enteredUsername, enteredPassword, "loginButtonClick"));
         }
         catch(Exception e)
         {
@@ -49,12 +54,17 @@ public class LoginView implements ScreenController
     
     
     
-    public void setListener(LoginListener loginListener) {
-	this.loginListener = loginListener;
+    public void addListener(CommonListener listener) 
+    {
+        id++;
+	this.listeners.add(listener);
+        this.listener = (LoginListener)listener;
     }
 
     @Override
-    public void bind(Nifty nifty, Screen screen) {
+    public void bind(Nifty nifty, Screen screen) 
+    {
+//        ViewProperty.getInstance().setNifty(nifty);
     }
 
     @Override
@@ -65,4 +75,12 @@ public class LoginView implements ScreenController
     public void onEndScreen() {
     }
     
+    public void firePropertyChange(LoginEvent property)
+    {
+        for (CommonListener tmpListener : listeners) 
+        {
+            tmpListener.actionPerformed(property);
+        }
+        this.listener.actionPerformed(property);
+    }
 }
