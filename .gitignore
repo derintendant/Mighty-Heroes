@@ -3,17 +3,7 @@
 # Package Files #
 *.war
 *.ear
-/MIGLogin/MIGLoginClient/nbproject/private/
-/MIGLogin/MIGLoginServer/nbproject/private/
-/MIGLogin/MIGMain/nbproject/private/
-/MIGLogin/MIGXmlRpcClient/nbproject/private/
 
-/MIGLogin/MIGXmlRpcClient/build/
-/MIGLogin/MIGMain/build/
-/MIGLogin/MIGLoginClient/build/
-
-/MIGLogin/MIGXmlRpcClient/dist/
-/MIGLogin/MIGMain/dist/
-/MIGLogin/MIGLoginClient/dist/
-/MIGLogin/MigXmlRpcServer/dist/
-MIGLogin/MigXmlRpcServer/nbproject/private/
+/MIGLogin/*/build/
+/MIGLogin/*/dist/
+/MIGLogin/*/nbproject/private/

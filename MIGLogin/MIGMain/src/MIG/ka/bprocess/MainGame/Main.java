@@ -1,6 +1,6 @@
 package MIG.ka.bprocess.MainGame;
 
-import MIG.ka.bprocess.GameController.GameController;
+import MIG.ka.bprocess.Gamestates.GamestateManager;
 
 /**
  * test
@@ -8,9 +8,9 @@ import MIG.ka.bprocess.GameController.GameController;
  */
 public class Main {
 
-    public static void main(String[] args){
-	GameController game = new GameController();
-	game.startLogin();
+    public static void main(String[] args)
+    {
+        GamestateManager gsm = new GamestateManager();
     }
 
 }
