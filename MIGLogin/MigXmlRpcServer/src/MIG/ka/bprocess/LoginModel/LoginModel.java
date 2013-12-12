@@ -22,12 +22,12 @@ import BCrypt.BCrypt;
 public class LoginModel {
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-    static final String DB_URL = "jdbc:mysql://scootaloo.me";
+    static final String DB_URL = "jdbc:mysql://localhost";
 
     //  Database credentials
     static final String USER = "mightyheroes";
-    static final String PASS = "dud-ic-guc-ud-peeg-y";
-   
+    static final String PASS = "bi-dri-wit-it-hirn-e";
+    
     public static boolean checkLogindata(String loginusername, String loginpassword) {
         boolean loginstatus;
         loginstatus = false;//true = Benutzername vorhanden, Passwort korrekt   
@@ -50,15 +50,10 @@ public class LoginModel {
                 + loginusername;
             ResultSet rs = stmt.executeQuery(sql);
 
-            //Extract data from result set
+            //Extract password from result set
             String databasepassword = rs.getString("password");
-
-            //compare username and password
-            if (BCrypt.checkpw(loginpassword, databasepassword)){
-                loginstatus = true;
-            } else {
-                loginstatus = false;
-            }
+            loginstatus = BCrypt.checkpw(loginpassword, databasepassword);
+            
             //Clean-up environment
             rs.close();
             stmt.close();
