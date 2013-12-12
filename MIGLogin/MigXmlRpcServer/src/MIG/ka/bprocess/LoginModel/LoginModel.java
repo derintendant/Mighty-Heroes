@@ -8,8 +8,13 @@
 //!!!-Model vergleicht username und passwort - oder tut das der Controller?-!!!
 
 package MIG.ka.bprocess.LoginModel;
-import java.sql.*;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import BCrypt.BCrypt;
 /**
  *
  * @author Jan
@@ -17,12 +22,12 @@ import java.sql.*;
 public class LoginModel {
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-    static final String DB_URL = "jdbc:mysql://localhost/EMP";
+    static final String DB_URL = "jdbc:mysql://localhost";
 
     //  Database credentials
-    static final String USER = "database-username";
-    static final String PASS = "database-password";
-   
+    static final String USER = "mightyheroes";
+    static final String PASS = "bi-dri-wit-it-hirn-e";
+    
     public static boolean checkLogindata(String loginusername, String loginpassword) {
         boolean loginstatus;
         loginstatus = false;//true = Benutzername vorhanden, Passwort korrekt   
@@ -40,23 +45,19 @@ public class LoginModel {
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql;
+<<<<<<< HEAD
             sql = "SELECT username, password FROM users";
+=======
+            sql = "SELECT username, password "
+                + "FROM users where username="
+                + loginusername;
+>>>>>>> 0c6191acf6341c425d5bbdcb8d7e995fd61285e0
             ResultSet rs = stmt.executeQuery(sql);
 
-            //Extract data from result set
-            while(rs.next()){
-                //Retrieve by column name
-                String username = rs.getString("username");
-                String password = rs.getString("password");
-
-                //compare username and password
-                if(username.equals(loginusername)){
-                    if(password.equals(loginpassword)){
-                        loginstatus = true;
-                        break;
-                    }
-                }
-            }//end while
+            //Extract password from result set
+            String databasepassword = rs.getString("password");
+            loginstatus = BCrypt.checkpw(loginpassword, databasepassword);
+            
             //Clean-up environment
             rs.close();
             stmt.close();

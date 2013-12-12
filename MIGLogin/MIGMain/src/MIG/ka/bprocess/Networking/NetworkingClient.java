@@ -26,8 +26,8 @@ public class NetworkingClient {
     private static NetworkingClient instance = null;
     
     private final static String ServerUrlPrefix = "http://";
-    private final static String ServerIp = "127.0.0.1";
-    private final static String ServerPort = ":8085/";
+    private final static String ServerIp = "scootaloo.me";
+    private final static String ServerPort = ":8085/server";
     
     private final XmlRpcClient client;
     

@@ -7,6 +7,9 @@
 package MIG.ka.bprocess.Gamestates;
 
 import MIG.ka.bprocess.Common.CommonEvent;
+import MIG.ka.bprocess.Common.ViewProperty;
+import MIG.ka.bprocess.Login.LoginListener;
+import MIG.ka.bprocess.Login.Screen.LoginView;
 import java.util.ArrayList;
 
 /**
@@ -16,10 +19,15 @@ import java.util.ArrayList;
 public class GamestateManager implements StateListener
 {
 
-    ArrayList<Gamestate> stateList = new ArrayList<Gamestate>(3);
+    ArrayList<Gamestate> stateList = new ArrayList<>(3);
 
     public GamestateManager() {
-        this.addState(new GS_Stopped());
+        LoginView tmpView = new LoginView();
+        GS_Stopped tmpGS = new GS_Stopped(tmpView);
+        tmpView.addListener((LoginListener)tmpGS);
+        ViewProperty.getInstance().setView(tmpView);
+        tmpGS.setListener((StateListener)this);
+        this.addState(tmpGS);
         this.initState();
     }
     
@@ -60,6 +68,7 @@ public class GamestateManager implements StateListener
         this.stateList.add(state);
     }
     
+    @Override
     public void actionPerformed(StatechangeEvent event) 
     {
         int index;
@@ -75,17 +84,16 @@ public class GamestateManager implements StateListener
         }
         if(index == -1)
         {
-            if(event.getId().equals("GS_Paused"))
-            {
-                this.addState(new GS_Paused());
-            }
-            else if(event.getId().equals("GS_Running"))
-            {
-                this.addState(new GS_Running());
-            }
-            else if(event.getId().equals("GS_Stopped"))
-            {
-                this.addState(new GS_Stopped());
+            switch (event.getId()) {
+                case "GS_Paused":
+                    this.addState(new GS_Paused());
+                    break;
+                case "GS_Running":
+                    this.addState(new GS_Running());
+                    break;
+                case "GS_Stopped":
+                    this.addState(new GS_Stopped());
+                    break;
             }
         }
         else
@@ -95,6 +103,7 @@ public class GamestateManager implements StateListener
         this.initState();
     }
 
+    @Override
      public void actionPerformed(ExitEvent event) 
      {
         for (Gamestate gamestate : stateList) 
@@ -103,6 +112,7 @@ public class GamestateManager implements StateListener
         }
      }
     
+    @Override
     public void actionPerformed(CommonEvent event) 
     {
     }

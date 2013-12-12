@@ -25,9 +25,13 @@ import java.util.logging.Logger;
  */
 public class GS_Stopped extends Gamestate implements LoginListener, StartMultiplayerListener{
 
-    
     private LoginView view;
     
+    public GS_Stopped(LoginView view) {
+       super("GS_Stopped");
+        this.view = view;
+    }
+
     @Override
     public void actionPerformed(LoginEvent event) {
         boolean LoginSucces;
@@ -51,7 +55,9 @@ public class GS_Stopped extends Gamestate implements LoginListener, StartMultipl
      * It can be used to Handle all Type of possible Events.
      */
     @Override
-    public void actionPerformed(CommonEvent event) {
+    public void actionPerformed(CommonEvent event) 
+    {
+        System.out.println("test");
     }
     public GS_Stopped() 
     {
@@ -61,14 +67,11 @@ public class GS_Stopped extends Gamestate implements LoginListener, StartMultipl
     @Override
     public void init() 
     {
-        view = new LoginView();
-        view.setListener((LoginListener)this);
         this.startLogin();
     }
 
     @Override
     public void cleanup() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public void startLogin() {
