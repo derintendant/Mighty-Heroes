@@ -10,12 +10,6 @@ import MIG.ka.bprocess.Login.Screen.LoginView;
 import com.jme3.app.SimpleApplication;
 import com.jme3.niftygui.NiftyJmeDisplay;
 import de.lessvoid.nifty.Nifty;
-<<<<<<< HEAD
-import de.lessvoid.nifty.controls.ListBox;
-import de.lessvoid.nifty.screen.Screen;
-import de.lessvoid.nifty.screen.ScreenController;
-=======
->>>>>>> 0c6191acf6341c425d5bbdcb8d7e995fd61285e0
 
 /**
  *

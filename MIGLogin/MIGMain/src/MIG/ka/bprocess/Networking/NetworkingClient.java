@@ -26,8 +26,7 @@ public class NetworkingClient {
     private static NetworkingClient instance = null;
     
     private final static String ServerUrlPrefix = "http://";
-    private final static String ServerIp = "scootaloo.me";
-    private final static String ServerPort = ":8085/server";
+    private final static String ServerIp = "mightyheroes.scootaloo.me/api";
     
     private final XmlRpcClient client;
     
@@ -36,7 +35,7 @@ public class NetworkingClient {
         XmlRpcClientConfigImpl conf = new XmlRpcClientConfigImpl();
         try 
         {
-            conf.setServerURL(new URL(ServerUrlPrefix+ServerIp+ServerPort));
+            conf.setServerURL(new URL(ServerUrlPrefix+ServerIp));
             conf.setConnectionTimeout(60 * 1000);
             conf.setReplyTimeout(60 * 1000);
 
