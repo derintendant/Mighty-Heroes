@@ -22,7 +22,7 @@ import BCrypt.BCrypt;
 public class LoginModel {
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-    static final String DB_URL = "jdbc:mysql://localhost";
+    static final String DB_URL = "jdbc:mysql://localhost/mightyheroes";
 
     //  Database credentials
     static final String USER = "mightyheroes";
@@ -45,13 +45,10 @@ public class LoginModel {
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql;
-<<<<<<< HEAD
-            sql = "SELECT username, password FROM users";
-=======
             sql = "SELECT username, password "
-                + "FROM users where username="
-                + loginusername;
->>>>>>> 0c6191acf6341c425d5bbdcb8d7e995fd61285e0
+                + "FROM users WHERE username='"
+                + loginusername
+		+ "'";
             ResultSet rs = stmt.executeQuery(sql);
 
             //Extract password from result set

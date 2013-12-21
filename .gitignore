@@ -7,8 +7,6 @@
 /MIGLogin/*/build/
 /MIGLogin/*/dist/
 /MIGLogin/*/nbproject/private/
-<<<<<<< HEAD
-=======
 .name,.iml,.uml
 MIGLogin/.idea/.name
 MIGLogin/.idea/compiler.xml
@@ -48,4 +46,3 @@ MIGLogin/MigXmlRpcServer/src/MIG/ka/bprocess/Networking/Handler/Handler.uml
 MIGLogin/MigXmlRpcServer/src/MIG/ka/bprocess/Networking/Networking.uml
 MIGLogin/MigXmlRpcServer/src/MIG/ka/bprocess/bprocess.uml
 MIGLogin/bprocess.uml
->>>>>>> 0c6191acf6341c425d5bbdcb8d7e995fd61285e0
