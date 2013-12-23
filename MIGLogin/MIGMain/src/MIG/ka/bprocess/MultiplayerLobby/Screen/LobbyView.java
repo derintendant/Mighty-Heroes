@@ -19,7 +19,11 @@ import de.lessvoid.nifty.screen.ScreenController;
 public class LobbyView implements ScreenController
 {
     private StartMultiplayerListener multiplayerListener;
-    
+
+    public LobbyView() 
+    {
+//        ViewProperty.getInstance().setLobbyScreen(this);
+    }
     
     public void initView() 
     {

@@ -11,9 +11,11 @@ import MIG.ka.bprocess.Common.ViewProperty;
 import MIG.ka.bprocess.Login.LoginEvent;
 import MIG.ka.bprocess.Login.LoginListener;
 import MIG.ka.bprocess.Login.Screen.LoginView;
+import MIG.ka.bprocess.MainMenu.Screen.MainMenuView;
 import MIG.ka.bprocess.MainMenu.StartMultiplayerEvent;
 import MIG.ka.bprocess.MainMenu.StartMultiplayerListener;
 import MIG.ka.bprocess.MultiplayerGame.Game;
+import MIG.ka.bprocess.MultiplayerLobby.Screen.LobbyView;
 import MIG.ka.bprocess.Networking.NetworkingClient;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -25,21 +27,29 @@ import java.util.logging.Logger;
  */
 public class GS_Stopped extends Gamestate implements LoginListener, StartMultiplayerListener{
 
-    private LoginView view;
+    private LoginView loginScreen;
+    private LobbyView lobbyScreen;
+    private MainMenuView mainMenuScreen;
     
     public GS_Stopped(LoginView view) {
        super("GS_Stopped");
-        this.view = view;
+        this.loginScreen = view;
+        this.mainMenuScreen = new MainMenuView();
+        this.lobbyScreen = new LobbyView();
+        ViewProperty.getInstance().setMainMenuScreen(mainMenuScreen);
+        ViewProperty.getInstance().setLobbyScreen(lobbyScreen);
     }
 
     @Override
-    public void actionPerformed(LoginEvent event) {
+    public void actionPerformed(LoginEvent event) 
+    {
         boolean LoginSucces;
         LoginSucces = NetworkingClient.getInstance().LoginRequest(event.getName(), event.getPassword());
         if(LoginSucces)
         {
             Logger.getLogger(GS_Stopped.class.getName()).log(Level.INFO , "Username and Password accepted");
-            //TODO: Mathode aufrufen, die diesen Fall behandelt
+            this.mainMenuScreen.initView();
+            this.mainMenuScreen.setListener((StartMultiplayerListener)this);
         }
         else
         {
@@ -67,6 +77,7 @@ public class GS_Stopped extends Gamestate implements LoginListener, StartMultipl
     @Override
     public void init() 
     {
+        
         this.startLogin();
     }
 
@@ -82,8 +93,8 @@ public class GS_Stopped extends Gamestate implements LoginListener, StartMultipl
     @Override
     public void actionPerformed(StartMultiplayerEvent event) 
     {
-        //Lobby View anzeigen!!!
-        //Datenmodel abfrage, welche spiele vorhanden sind!
-        ArrayList<Game> games = NetworkingClient.getInstance().getAllGames();
+        ViewProperty.getInstance().gotoScreen("lobby");//Lobby View anzeigen
+        ArrayList<Game> games = NetworkingClient.getInstance().getAllGames();//Datenmodel abfrage, welche spiele vorhanden sind!
+        //Daten in View schreiben!!!
     }
 }

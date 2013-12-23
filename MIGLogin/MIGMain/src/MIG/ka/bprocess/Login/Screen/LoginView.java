@@ -13,6 +13,8 @@ import de.lessvoid.nifty.controls.TextField;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,34 +23,26 @@ import java.util.ArrayList;
 public class LoginView implements ScreenController
 {
     
-    private ArrayList<CommonListener> listeners = new ArrayList<>();
-    private LoginListener listener;
-    private int id;
+    private final ArrayList<CommonListener> listeners = new ArrayList<>();
 
     public LoginView() {
     }
     
-    public void quitGame() {
-	System.out.println("Quitting Game");
-	       ViewProperty.getInstance().stop();
+    public void quitGame() 
+    {
+        Logger.getLogger(LoginView.class.getName()).log(Level.INFO , "Quitting Game");
+        ViewProperty.getInstance().stop();
     }
     
     public void login() 
     {
-        try
-        {
-            System.out.println("Login started");
-            TextField usernameTextField = ViewProperty.getInstance().getNifty().getCurrentScreen().findNiftyControl("usernameTextField", TextField.class);
-            TextField passwordTextField = ViewProperty.getInstance().getNifty().getCurrentScreen().findNiftyControl("passwordTextField", TextField.class);
-            String enteredUsername = usernameTextField.getRealText();
-            String enteredPassword = passwordTextField.getRealText();
-            
-            firePropertyChange(new LoginEvent(enteredUsername, enteredPassword, "loginButtonClick"));
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
+        Logger.getLogger(LoginView.class.getName()).log(Level.INFO , "Login started");
+        TextField usernameTextField = ViewProperty.getInstance().findNiftyControl("usernameTextField", TextField.class);
+        TextField passwordTextField = ViewProperty.getInstance().findNiftyControl("passwordTextField", TextField.class);
+        String enteredUsername = usernameTextField.getRealText();
+        String enteredPassword = passwordTextField.getRealText();
+        
+        firePropertyChange(new LoginEvent(enteredUsername, enteredPassword, "loginButtonClick"));
     }
     
     
@@ -56,15 +50,12 @@ public class LoginView implements ScreenController
     
     public void addListener(CommonListener listener) 
     {
-        id++;
 	this.listeners.add(listener);
-        this.listener = (LoginListener)listener;
     }
 
     @Override
     public void bind(Nifty nifty, Screen screen) 
     {
-//        ViewProperty.getInstance().setNifty(nifty);
     }
 
     @Override
@@ -79,8 +70,10 @@ public class LoginView implements ScreenController
     {
         for (CommonListener tmpListener : listeners) 
         {
-            tmpListener.actionPerformed(property);
+            if(tmpListener instanceof LoginListener)
+            {
+                ((LoginListener)tmpListener).actionPerformed(property);
+            }
         }
-        this.listener.actionPerformed(property);
     }
 }

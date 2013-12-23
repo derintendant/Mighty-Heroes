@@ -10,6 +10,7 @@ import MIG.ka.bprocess.Common.CommonEvent;
 import MIG.ka.bprocess.Common.ViewProperty;
 import MIG.ka.bprocess.Login.LoginListener;
 import MIG.ka.bprocess.Login.Screen.LoginView;
+import MIG.ka.bprocess.MainMenu.StartMultiplayerListener;
 import java.util.ArrayList;
 
 /**
@@ -25,8 +26,8 @@ public class GamestateManager implements StateListener
         LoginView tmpView = new LoginView();
         GS_Stopped tmpGS = new GS_Stopped(tmpView);
         tmpView.addListener((LoginListener)tmpGS);
-        ViewProperty.getInstance().setView(tmpView);
         tmpGS.setListener((StateListener)this);
+        ViewProperty.getInstance().setLoginScreen(tmpView);
         this.addState(tmpGS);
         this.initState();
     }
