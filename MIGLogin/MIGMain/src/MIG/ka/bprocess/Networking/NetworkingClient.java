@@ -7,8 +7,10 @@
 package MIG.ka.bprocess.Networking;
 
 import MIG.ka.bprocess.MultiplayerGame.Game;
+import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -75,6 +77,14 @@ public class NetworkingClient {
         ArrayList list = new ArrayList();
         list.add(username);
         list.add(password);
+        try 
+        {
+            list.add(InetAddress.getLocalHost().getHostAddress());
+        } 
+        catch (UnknownHostException ex) 
+        {
+            Logger.getLogger(NetworkingClient.class.getName()).log(Level.SEVERE, "Der Local Host ist nicht bekannt.", ex);
+        }
         return (boolean)sendWithParams("LoginHandler.checkLogindata", list);
     }
     

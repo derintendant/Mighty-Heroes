@@ -7,8 +7,8 @@
 package MIG.ka.bprocess.MainMenu.Screen;
 
 import MIG.ka.bprocess.Common.ViewProperty;
+import MIG.ka.bprocess.MainMenu.StartMultiplayerEvent;
 import MIG.ka.bprocess.MainMenu.StartMultiplayerListener;
-import com.jme3.app.SimpleApplication;
 import de.lessvoid.nifty.Nifty;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
@@ -19,20 +19,26 @@ import de.lessvoid.nifty.screen.ScreenController;
  */
 public class MainMenuView implements  ScreenController
 {
-     private StartMultiplayerListener multiplayerListener;
-    
+    private StartMultiplayerListener multiplayerListener;
+
+    public MainMenuView() 
+    {
+    }
     
     public void initView() 
     {
+//        ViewProperty.getInstance().setMainMenuScreen(this);
         ViewProperty.getInstance().gotoScreen("menu");
 	
     }
     
     public void startMultiplayer() 
     {
+        multiplayerListener.actionPerformed(new StartMultiplayerEvent("lobby"));
     }
     
-    public void setListener(StartMultiplayerListener multiplayerListener) {
+    public void setListener(StartMultiplayerListener multiplayerListener) 
+    {
 	this.multiplayerListener = multiplayerListener;
     }
 
