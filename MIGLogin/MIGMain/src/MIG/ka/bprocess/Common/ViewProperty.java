@@ -75,6 +75,7 @@ public class ViewProperty extends SimpleApplication
 	nifty.addXml("Interface/LoginScreen.xml");
 	nifty.addXml("Interface/MenuScreen.xml");
 	nifty.addXml("Interface/LobbyScreen.xml");
+	nifty.addXml("Interface/GameCreationSuccessScreen.xml");
 	nifty.gotoScreen("login");
 	guiViewPort.addProcessor(niftyDisplay);
 	

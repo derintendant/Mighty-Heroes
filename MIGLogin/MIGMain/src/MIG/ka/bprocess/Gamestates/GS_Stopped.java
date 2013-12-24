@@ -123,6 +123,7 @@ public class GS_Stopped extends Gamestate implements LoginListener, StartMultipl
     @Override
     public void actionPerformed(JoinGameEvent event) {
         NetworkingClient.getInstance().addUser(event.getOwnerSessionID());
+        ViewProperty.getInstance().gotoScreen("success");
     }
 
     @Override
