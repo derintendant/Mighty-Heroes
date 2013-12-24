@@ -6,42 +6,61 @@
 
 package MIG.ka.bprocess.MultiplayerGame;
 
+import MIG.ka.bprocess.LoginModel.LoginModel;
+import MIG.ka.bprocess.LoginModel.Session;
 import java.util.ArrayList;
 
 /**
  *
  * @author Thomas
  */
-public class Game 
+public class Game
 {
-    ArrayList<String> usersByName = new ArrayList<>();
+    ArrayList<Session> sessionsByID = new ArrayList<>(2);
 
-    public Game(String userOne)
+    public String getOwnerSessionID()
     {
-        this.usersByName.add(userOne);
+        return this.sessionsByID.get(0).getSessionID();
     }
     
-    public boolean addUser(String user)
+    public Game(String sessionID)
     {
-        if(this.usersByName.size() <= 1)
+        Session session = LoginModel.getInstance().getSessionByID(sessionID);
+        if(session != null)
         {
-            if(!checkGame(user))
+            this.sessionsByID.add(session);
+        }
+    }
+    
+    public boolean addUser(String sessionID)
+    {
+        Session session = LoginModel.getInstance().getSessionByID(sessionID);
+        if(session != null)
+        {
+            if(this.sessionsByID.size() <= 1)
             {
-                this.usersByName.add(user);
-                return true;
+                if(!checkGame(sessionID))
+                {
+                    this.sessionsByID.add(session);
+                    return true;
+                }
             }
         }
         return false;
     }
     
-    public boolean checkGame(String user)
+    public boolean checkGame(String sessionID)
     {
-        for (String actualUser : usersByName) {
-            return actualUser.equals(user);
+        Session session = LoginModel.getInstance().getSessionByID(sessionID);
+        if(session != null)
+        {
+            for (Session actualUser : sessionsByID) {
+                if(actualUser == session)
+                {
+                    return true;
+                }
+            }
         }
         return false;
     }
-    
-    
-    
 }

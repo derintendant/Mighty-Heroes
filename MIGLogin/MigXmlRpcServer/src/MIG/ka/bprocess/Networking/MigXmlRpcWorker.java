@@ -40,7 +40,6 @@ public class MigXmlRpcWorker {
             
             Logger.getLogger(MigXmlRpcWorker.class.getName()).log(Level.INFO, 
                     "Started the Working Socket at Port: " + port);
-            this.server.acceptClient("127.0.0.1");
             this.server.start();
         } 
         catch (IOException | XmlRpcException ex) 

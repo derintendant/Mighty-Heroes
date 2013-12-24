@@ -32,11 +32,11 @@ public class LobbyModel {
         return instance;
     }
     
-    public Game getGameByUserName(String user)
+    public Game getGameBySessionID(String sessionID)
     {
         for (Game actualGame : gamesInLobby) 
         {
-            if(actualGame.checkGame(user))
+            if(actualGame.checkGame(sessionID))
             {
                 return actualGame;
             }

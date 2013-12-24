@@ -6,9 +6,11 @@
 
 package MIG.ka.bprocess.Networking.Handler;
 
+import MIG.ka.bprocess.LoginModel.LoginModel;
 import MIG.ka.bprocess.MultiplayerGame.Game;
 import MIG.ka.bprocess.MultiplayerLobbyModel.LobbyModel;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -16,31 +18,31 @@ import java.util.ArrayList;
  */
 public class MigXmlRpcLobbyHandler 
 {
-    public void addGame(String user)
+    public boolean addGame(String sessionID)
     {
-        LobbyModel.getInstance().addGame(new Game(user));
+        LobbyModel.getInstance().addGame(new Game(sessionID));
+        return true;
+    }
+     
+    public boolean addUser(String ownerSessionID, String sessionID)
+    {
+        Game game = LobbyModel.getInstance().getGameBySessionID(ownerSessionID);
+        if(game != null)
+        {
+            return game.addUser(sessionID);
+        }
+        return false;
     }
     
-     public Game getGameByUserName(String user)
-     {
-         return LobbyModel.getInstance().getGameByUserName(user);
+    public ArrayList<String> getAllGames(String sessionID)
+    {
+        ArrayList<String> result = new ArrayList<>();
+        if(LoginModel.getInstance().checkSession(sessionID))
+        {
+            for (Game game : LobbyModel.getInstance().getAllGames()) {
+                result.add(game.getOwnerSessionID());
+            }
+        }
+        return result;
      }
-     
-     public boolean addUser(String gameOwner, String user)
-     {
-         Game game = getGameByUserName(gameOwner);
-         if(game != null)
-         {
-             return game.addUser(user);
-         }
-         return false;
-     }
-    
-     public ArrayList<Game> getAllGames()
-     {
-         return LobbyModel.getInstance().getAllGames();
-     }
-             
-             
-    
 }

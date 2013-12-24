@@ -14,10 +14,16 @@ import MIG.ka.bprocess.Login.Screen.LoginView;
 import MIG.ka.bprocess.MainMenu.Screen.MainMenuView;
 import MIG.ka.bprocess.MainMenu.StartMultiplayerEvent;
 import MIG.ka.bprocess.MainMenu.StartMultiplayerListener;
-import MIG.ka.bprocess.MultiplayerGame.Game;
+import MIG.ka.bprocess.MultiplayerGame.CreateGameEvent;
+import MIG.ka.bprocess.MultiplayerGame.CreateGameListener;
+import MIG.ka.bprocess.MultiplayerGame.JoinGameEvent;
+import MIG.ka.bprocess.MultiplayerGame.JoinGameListener;
+import MIG.ka.bprocess.MultiplayerGame.LeaveLobbyEvent;
+import MIG.ka.bprocess.MultiplayerGame.LeaveLobbyListener;
 import MIG.ka.bprocess.MultiplayerLobby.Screen.LobbyView;
 import MIG.ka.bprocess.Networking.NetworkingClient;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,7 +31,7 @@ import java.util.logging.Logger;
  *
  * @author Thor
  */
-public class GS_Stopped extends Gamestate implements LoginListener, StartMultiplayerListener{
+public class GS_Stopped extends Gamestate implements LoginListener, StartMultiplayerListener, CreateGameListener, JoinGameListener, LeaveLobbyListener{
 
     private LoginView loginScreen;
     private LobbyView lobbyScreen;
@@ -93,8 +99,34 @@ public class GS_Stopped extends Gamestate implements LoginListener, StartMultipl
     @Override
     public void actionPerformed(StartMultiplayerEvent event) 
     {
+        this.lobbyScreen.addListener(this);
         ViewProperty.getInstance().gotoScreen("lobby");//Lobby View anzeigen
-        ArrayList<Game> games = NetworkingClient.getInstance().getAllGames();//Datenmodel abfrage, welche spiele vorhanden sind!
-        //Daten in View schreiben!!!
+        ArrayList<String> games = NetworkingClient.getInstance().getAllGames();//Datenmodel abfrage, welche spiele vorhanden sind!
+        addGames(games);
+    }
+    
+    private void addGames(ArrayList games)
+    {
+        for (Iterator gameIter = games.iterator(); gameIter.hasNext();) {
+            String game = (String)gameIter.next();
+            ViewProperty.getInstance().addLobbyGame(game);
+        }
+    }
+
+    @Override
+    public void actionPerformed(CreateGameEvent event) {
+        NetworkingClient.getInstance().addGame();
+        ArrayList<String> games = NetworkingClient.getInstance().getAllGames();
+        addGames(games);
+    }
+
+    @Override
+    public void actionPerformed(JoinGameEvent event) {
+        NetworkingClient.getInstance().addUser(event.getOwnerSessionID());
+    }
+
+    @Override
+    public void actionPerformed(LeaveLobbyEvent event) {
+        this.mainMenuScreen.initView();
     }
 }

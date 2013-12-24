@@ -17,8 +17,9 @@ public class MigXmlRpcLoginHandler {
     public MigXmlRpcLoginHandler() {
     }
 
-    public boolean checkLogindata(String username , String password , String ip)
+    public boolean checkLogindata(String username , String password , String sessionID)
     {
-        return true;//LoginModel.checkLogindata(username, password);
+//        return true;
+          return LoginModel.getInstance().checkLogindata(username, password, sessionID);
     }
 }

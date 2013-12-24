@@ -6,12 +6,10 @@
 
 package MIG.ka.bprocess.Networking;
 
-import MIG.ka.bprocess.MultiplayerGame.Game;
-import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.xmlrpc.XmlRpcException;
@@ -27,9 +25,10 @@ public class NetworkingClient {
     
     private static NetworkingClient instance = null;
     
-    private final static String ServerUrlPrefix = "http://";
-    private final static String ServerIp = "127.0.0.1";
-    private final static String ServerPort = ":8085/";
+    private final static String serverUrlPrefix = "http://";
+    private final static String serverIp = "localhost";//"scootaloo.me";
+    private final static String serverPort = ":8085/";//server";
+    private static String sessionID;
     
     private final XmlRpcClient client;
     
@@ -38,7 +37,7 @@ public class NetworkingClient {
         XmlRpcClientConfigImpl conf = new XmlRpcClientConfigImpl();
         try 
         {
-            conf.setServerURL(new URL(ServerUrlPrefix+ServerIp+ServerPort));
+            conf.setServerURL(new URL(serverUrlPrefix+serverIp+serverPort));
             conf.setConnectionTimeout(60 * 1000);
             conf.setReplyTimeout(60 * 1000);
 
@@ -55,6 +54,7 @@ public class NetworkingClient {
     {
         try 
         {
+          params.add(sessionID);
           return this.client.execute(MethodName, params);
         } 
         catch (XmlRpcException ex) 
@@ -74,62 +74,38 @@ public class NetworkingClient {
      */
     public boolean LoginRequest(String username, String password) throws NullPointerException
     {
+        this.sessionID = username;
         ArrayList list = new ArrayList();
         list.add(username);
         list.add(password);
-        try 
-        {
-            list.add(InetAddress.getLocalHost().getHostAddress());
-        } 
-        catch (UnknownHostException ex) 
-        {
-            Logger.getLogger(NetworkingClient.class.getName()).log(Level.SEVERE, "Der Local Host ist nicht bekannt.", ex);
-        }
         return (boolean)sendWithParams("LoginHandler.checkLogindata", list);
     }
     
-     public void addGame(String user)
+     public void addGame()
     {
         ArrayList list = new ArrayList();
-        list.add(user);
         sendWithParams("LobbyHandler.addGame", list);
     }
-    
-     public Game getGameByUserName(String user)
-     {
-         Object game;
-        ArrayList list = new ArrayList();
-        list.add(user);
-        try
-        {
-            game = sendWithParams("LobbyHandler.getGameByUserName", list);
-            if(game != null)
-            {
-                return (Game)game;
-            }    
-        }
-        catch(ClassCastException ex)
-        {
-             Logger.getLogger(NetworkingClient.class.getName())
-                    .log(Level.SEVERE, "Server returned no game!", ex);
-        }
-        return null;
-     }
      
-     public boolean addUser(String gameOwner, String user)
+     public boolean addUser(String ownerSessionID)
      {
         ArrayList list = new ArrayList();
-        list.add(gameOwner);
-        list.add(user);
+        list.add(ownerSessionID);
         return (boolean)sendWithParams("LobbyHandler.addUser", list);
      }
     
-     public ArrayList<Game> getAllGames()
+     public ArrayList<String> getAllGames()
      {
          ArrayList list = new ArrayList();
-         return (ArrayList<Game>)sendWithParams("LobbyHandler.getAllGames" , list);
+         Object result = sendWithParams("LobbyHandler.getAllGames" , list);
+         Object resultObjectArray[] = (Object[])result;
+         ArrayList<String> resultList = new ArrayList();
+        for (Object resultObjectArray1 : resultObjectArray) {
+            resultList.add((String) resultObjectArray1);
+        }
+         return resultList;
      }
-     
+      
     public static NetworkingClient getInstance()
     {
         if(instance == null)

@@ -12,6 +12,7 @@ import MIG.ka.bprocess.MultiplayerLobby.Screen.LobbyView;
 import com.jme3.app.SimpleApplication;
 import com.jme3.niftygui.NiftyJmeDisplay;
 import de.lessvoid.nifty.Nifty;
+import de.lessvoid.nifty.controls.ListBox;
 import de.lessvoid.nifty.controls.NiftyControl;
 
 /**
@@ -90,5 +91,11 @@ public class ViewProperty extends SimpleApplication
     public void gotoScreen(String screenId)
     {
         nifty.gotoScreen(screenId);
+    }
+    
+    public void addLobbyGame(String ownerSessionID)
+    {
+        ListBox listBox = this.nifty.getCurrentScreen().findNiftyControl("GamesListBox", ListBox.class);
+        listBox.addItem(ownerSessionID);
     }
 }
